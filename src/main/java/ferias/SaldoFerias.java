@@ -38,6 +38,7 @@ public class SaldoFerias {
 	int diasDisponiveisDeFerias = 0; // Vai ser preenchido na data "proximasFerias"
 	ArrayList<Ferias> historicoFerias = new ArrayList<Ferias>();
 	ArrayList<FeriasRequerimento> historicoRequimentos = new ArrayList<FeriasRequerimento>();
+	// Adicionar metodos para adicionar e remover itens nas ArrayLists (getters e setters)
 
 	public SaldoFerias() {
 		proximasFerias = calcularProximasFerias();

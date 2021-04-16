@@ -3,18 +3,13 @@ package ferias;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+//TODO: Documentar
 public class Ferias {
 	LocalDate dataInicio;
 	LocalDate datafim;
 	int diasTotais;
 	int diasVendidos;
 	String tipoFerias;
-
-	//	public FeriasEntrada() {
-	//		this.dataInicio = LocalDate.now();
-	//		this.datafim = LocalDate.of(2021, 5, 15);
-	//
-	//	}
 
 	public Ferias(LocalDate dataInicio, LocalDate dataFim) {
 		this.dataInicio = dataInicio;
@@ -42,7 +37,7 @@ public class Ferias {
 	 * @return String classificação
 	 */
 	
-	//Incluir ferias fracionadas?
+	//TODO: Incluir ferias fracionadas, adicionar variaveis de referencia (igual fizemos no SaldoFerias)
 	public String classificarFerias() {
 		if (this.diasTotais < 30) {
 			return "Parciais";
@@ -56,6 +51,7 @@ public class Ferias {
 	/*
 	 * 
 	 */
+	// TODO: Documentar, adicionar variaveis de referencia
 	public void calcularDiasVendidos() {
 		if (this.diasTotais >= 20 && this.diasTotais < 30) {
 			this.diasVendidos = 30 - this.diasTotais;

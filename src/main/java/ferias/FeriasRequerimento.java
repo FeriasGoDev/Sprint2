@@ -1,5 +1,6 @@
 package ferias;
 
+//TODO: Documentar
 public class FeriasRequerimento {
 	String identificadorUsuario; //FK Foreign Key do usuário
 	Ferias feriasRequisitada; // Instância de Férias
