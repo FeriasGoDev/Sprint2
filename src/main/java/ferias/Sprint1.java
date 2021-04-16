@@ -438,7 +438,6 @@ public class Sprint1 {
 		if (quantidadeChamados > 0) {
 			existemChamados = true;
 		}
-
 		return existemChamados;
 	}
 
