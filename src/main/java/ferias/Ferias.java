@@ -41,6 +41,8 @@ public class Ferias {
 	 * 
 	 * @return String classificação
 	 */
+	
+	//Incluir ferias fracionadas?
 	public String classificarFerias() {
 		if (this.diasTotais < 30) {
 			return "Parciais";
