@@ -13,11 +13,16 @@ public class TesteFerias {
 
 //	@Test
 //	public void testDiasVendidos() {
-//		FeriasEntrada ferias = new FeriasEntrada(data1, data2);
-//		
-//		assertEquals(10, ferias.diasVendidos);
+//		Ferias ferias = new Ferias(LocalDate.of(2021, 04, 16), LocalDate.of(2021, 05, 16));
+//		ferias.calcularDiasVendidos();
+//		assertEquals(30, ferias.diasVendidos);
 //
 //	}
-w
+	@Test
+	public void calculaProximasFeriasdoUsuario() {
+		SaldoFerias proximaFerias = new SaldoFerias(); //Aqui dentro, no consturtor proximasFerias é calculada
+		assertEquals(LocalDate.of(2022, 4, 16), proximaFerias.proximasFerias);
+	}
+
 	
 }

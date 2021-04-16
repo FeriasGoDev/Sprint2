@@ -1,6 +1,7 @@
 package ferias;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -116,6 +117,8 @@ public class Sprint1 {
 
 	//Janaina <<<<<<<<<< start
 	
+	
+	
 	static int[] saldoDeFerias = { 20, 30, 15, 10 };
 	static String[][] colaboradores = new String[2][3];
 	static LocalDate inicio = LocalDate.of(2019, 01, 15);
@@ -154,9 +157,10 @@ public class Sprint1 {
 	 * @param idColaborador ID do colaborador a ser consultado.
 	 * @return
 	 */
+	
 	public static boolean verificarSePossuiSaldoPositivo(int idColaborador, int saldoFerias) {
 		boolean podeTirarFerias = saldoFerias > 0 ? true : false;
-
+			//levei para a classe SaldoFerias;
 		return podeTirarFerias;
 	}
 
@@ -347,7 +351,7 @@ public class Sprint1 {
 	
 	//Varaveis com dados que deveriam vir do banco de dados
 	static int[] listaDeColaboradores = { 0, 1, 4 };// lista com id de colaboradores
-	static int[] saldoDeFerias = { 30, 25, 40, 10, 5 }; // substituir por valor recebido do Banco de dados
+	//static int[] saldoDeFerias = { 30, 25, 40, 10, 5 }; // substituir por valor recebido do Banco de dados
 	static int recebeColaboradores = 1; // recebe colaboradores do Banco de dados
 	
 	/**

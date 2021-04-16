@@ -39,6 +39,8 @@ public class SaldoFerias {
 	ArrayList<Ferias> historicoFerias = new ArrayList<Ferias>();
 	ArrayList<FeriasRequerimento> historicoRequimentos = new ArrayList<FeriasRequerimento>();
 	// Adicionar metodos para adicionar e remover itens nas ArrayLists (getters e setters)
+	
+	
 
 	public SaldoFerias() {
 		proximasFerias = calcularProximasFerias();
@@ -86,4 +88,20 @@ public class SaldoFerias {
 	public short receberFaltasDoControleDePontos() {
 		return 10;
 	} // vem de outra equipe - Controle de Pontos
+
+	
+	/**
+	 * Verifica se possui saldo positivo.
+	 * 
+	 * Consulta o valor de Saldo de Ferias e verifica se ele é positivo.
+	 * 
+	 * @param saldoFerias, da estrutura de dados.
+	 * @return
+	 */
+	public static boolean verificarSePossuiSaldoDeFerias(int saldoFerias) {
+		boolean podeTirarFerias = saldoFerias > 0 ? true : false;
+
+		return podeTirarFerias;
+	}
+	
 }
