@@ -372,9 +372,7 @@ public class Sprint1 {
 	 * @param id int Recebe um valor (quantidade de funcionarios) para fazer a validação
 	 * @return possuiColab true ou false
 	 */
-	public static boolean consultarColaboraoresDaEquipe(int id) {
-		boolean possuiColab = (id <= 0) ? false : true;
-		return possuiColab;
+	0
 	}
 /**
  * Consulta férias de membros da equipe

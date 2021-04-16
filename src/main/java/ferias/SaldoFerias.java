@@ -68,6 +68,7 @@ public class SaldoFerias {
 	 * é chamada na data definida pela variável "proximasFerias"
 	 * 
 	 */
+	
 	public short creditarDiasDeFerias() {
 		short creditos = DIAS_DISPONIVEIS_PARA_FERIAS;
 		short faltas = receberFaltasDoControleDePontos();

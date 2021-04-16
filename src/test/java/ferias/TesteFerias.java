@@ -18,6 +18,14 @@ public class TesteFerias {
 //		assertEquals(10, ferias.diasVendidos);
 //
 //	}
-w
+	
+// Generalizar para a função receber faltasDoControleDePonto
+	
+	@Test 
+public void creditoDeFerias() {
+	SaldoFerias creditoDias = new SaldoFerias ();
+	creditoDias.creditarDiasDeFerias();
+	assertEquals(24, creditoDias.creditarDiasDeFerias());
+ }
 	
 }
