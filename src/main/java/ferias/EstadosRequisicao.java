@@ -1,11 +1,11 @@
+package ferias;
 /**
  * 
+ * @author Jonata e Leonardo Pereira
+ *
  */
-package ferias;
-
 public enum EstadosRequisicao {
-	
-	EM_ANALISE,// Está sendo verificado as informações do requerimento de férias. 
-	APROVADO,//  Requerimento de férias aprovado.
-	REPROVADO,// Requerimento de férias reprovado, necessita de correção.
+	EM_ANALISE,//Esta sendo verificado as informações do requerimento de ferias.
+	APROVADO,//Requerimento de ferias aprovado.
+	REPROVADO,//Requerimento de ferias reprovado e necessita de correção.
 }
