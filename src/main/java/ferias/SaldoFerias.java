@@ -21,30 +21,99 @@ public class SaldoFerias {
 	//SCREAMING_SNAKE_CASE
 	public short INTERVALO_ENTRE_FERIAS_EM_ANOS = 1;
 	public short DIAS_DISPONIVEIS_PARA_FERIAS = 30;
-	
+
 	// Intervalos na posição [0] a [1] da array, inclusivos;
-	public short[] INTERVALO_FALTAS_1 = {6, 14};
-	public short[] INTERVALO_FALTAS_2 = {15, 23};
-	public short[] INTERVALO_FALTAS_3 = {24, 32};
-	public short[] INTERVALO_FALTAS_4 = {33}; // até infinitos
-	
+	public short INTERVALO_FALTAS_1 = 6;
+	public short INTERVALO_FALTAS_2 = 15;
+	public short INTERVALO_FALTAS_3 = 24;
+	public short INTERVALO_FALTAS_4 = 33; // até infinitos
+
 	// Dias a serem creditados em relação aos intervalos de faltas;
 	public short CREDITOS_FALTAS_1 = 24;
 	public short CREDITOS_FALTAS_2 = 18;
 	public short CREDITOS_FALTAS_3 = 12;
 	public short CREDITOS_FALTAS_4 = 0;
-	
-	LocalDate proximasFerias;
-	int diasDisponiveisDeFerias = 0; // Vai ser preenchido na data "proximasFerias"
-	ArrayList<Ferias> historicoFerias = new ArrayList<Ferias>();
-	ArrayList<FeriasRequerimento> historicoRequimentos = new ArrayList<FeriasRequerimento>();
+
+	private LocalDate proximasFerias;
+	private int diasDisponiveisDeFerias; // Vai ser preenchido na data "proximasFerias"
+	private ArrayList<Ferias> historicoFerias;
+	private ArrayList<FeriasRequerimento> historicoRequimentos;
 	// Adicionar metodos para adicionar e remover itens nas ArrayLists (getters e setters)
-	
-	
+
+
 
 	public SaldoFerias() {
 		proximasFerias = calcularProximasFerias();
+		diasDisponiveisDeFerias = 0;
+		historicoFerias = new ArrayList<Ferias>();
+		historicoRequimentos = new ArrayList<FeriasRequerimento>();
 	}
+
+
+
+	public LocalDate getProximasFerias() {
+		return proximasFerias;
+	}
+
+
+
+	public void setProximasFerias(LocalDate proximasFerias) {
+		this.proximasFerias = proximasFerias;
+	}
+
+
+
+	public int getDiasDisponiveisDeFerias() {
+		return diasDisponiveisDeFerias;
+	}
+
+
+
+	public void setDiasDisponiveisDeFerias(int diasDisponiveisDeFerias) {
+		this.diasDisponiveisDeFerias = diasDisponiveisDeFerias;
+	}
+
+
+
+	public ArrayList<Ferias> getHistoricoFerias() {
+		return historicoFerias;
+	}
+
+	public ArrayList<FeriasRequerimento>getHistoricoRequimentos() {
+		return historicoRequimentos;
+	}
+	
+	// Nao devemos substituir a lista, ela já esta instanciada no construtor.
+
+	//public void setHistoricoFerias(ArrayList<Ferias> historicoFerias) {
+	//	this.historicoFerias = historicoFerias;
+	//}
+
+
+
+
+
+	//public void setHistoricoRequimentos(
+	//		ArrayList<FeriasRequerimento> historicoRequimentos) {
+	//	this.historicoRequimentos = historicoRequimentos;
+	//}
+
+	// Metodos para modificar as ArrayLists
+
+	public void adicionarHistoricoFerias(Ferias ferias) {
+		this.historicoFerias.add(ferias);
+	}
+	public void removerHistoricoFerias(Ferias ferias) {
+		this.historicoFerias.remove(ferias);
+	}
+
+	public void adicionarHistoricoRequerimentos(FeriasRequerimento req) {
+		this.historicoRequimentos.add(req);
+	}
+	public void removerHistoricoRequerimentos(FeriasRequerimento req) {
+		this.historicoRequimentos.remove(req);
+	}
+
 
 	/*
 	 * Funcão responsável por definir a data em que os dias disponíveis para férias
@@ -56,15 +125,16 @@ public class SaldoFerias {
 	 * @return Data dos próximos dias de férias disponíveis
 	 */
 	public LocalDate calcularProximasFerias() {
-		if (this.proximasFerias == null) {
+		if (this.getProximasFerias() == null) {
 			// puxar do sistema de cadastro de funcionarios
 			LocalDate admissao = LocalDate.now();
 			return (admissao.plusYears(INTERVALO_ENTRE_FERIAS_EM_ANOS));
 		} else {
-			return (proximasFerias.plusYears(INTERVALO_ENTRE_FERIAS_EM_ANOS));
+			return (this.getProximasFerias().plusYears(INTERVALO_ENTRE_FERIAS_EM_ANOS));
 		}
 	}
 
+	
 	/*
 	 * Função responsável por creditar os dias disponíveis para férias. Essa função
 	 * é chamada na data definida pela variável "proximasFerias"
@@ -74,13 +144,13 @@ public class SaldoFerias {
 		short creditos = DIAS_DISPONIVEIS_PARA_FERIAS;
 		short faltas = receberFaltasDoControleDePontos();
 
-		if (faltas >= INTERVALO_FALTAS_1[0] && faltas <= INTERVALO_FALTAS_1[1])
+		if (faltas >= INTERVALO_FALTAS_1)
 			creditos = CREDITOS_FALTAS_1;
-		else if (faltas >= INTERVALO_FALTAS_2[0]  && faltas <= INTERVALO_FALTAS_2[1] )
+		else if (faltas >= INTERVALO_FALTAS_2 )
 			creditos = CREDITOS_FALTAS_2;
-		else if (faltas >= INTERVALO_FALTAS_3[0]  && faltas <= INTERVALO_FALTAS_3[1] )
+		else if (faltas >= INTERVALO_FALTAS_3 )
 			creditos = CREDITOS_FALTAS_3;
-		else if (faltas >= INTERVALO_FALTAS_4[0] )
+		else if (faltas >= INTERVALO_FALTAS_4)
 			creditos = CREDITOS_FALTAS_4;
 		return creditos;
 	}
@@ -89,7 +159,7 @@ public class SaldoFerias {
 		return 10;
 	} // vem de outra equipe - Controle de Pontos
 
-	
+
 	/**
 	 * Verifica se possui saldo positivo.
 	 * 
@@ -103,5 +173,5 @@ public class SaldoFerias {
 
 		return podeTirarFerias;
 	}
-	
+
 }
