@@ -30,6 +30,7 @@ public class Ferias {
 		this.dataFim = dataFim;
 		
 		this.diasTotaisRequisitados = calcularPeriodoFerias(dataInicio, dataFim);
+		
 		this.tipoFerias = classificarFerias(diasDisponiveis);
 		this.diasVendidos =  calcularDiasVendidos(diasDisponiveis);
 	}
@@ -94,12 +95,14 @@ public class Ferias {
 	 */
 	public TiposFerias classificarFerias(int diasDisponiveisParaFerias) {
 		// Para avaliar o tipo de férias, é necessário mais do que 1 dia disponível para férias
-		if (diasDisponiveisParaFerias==0) return TiposFerias.INVALIDA;
+		if (diasDisponiveisParaFerias==0) {
+			return TiposFerias.INVALIDA;
+		}
 		
 		// Verificando a quantidade de dias de férias que foram requisitadas para classificaçãp;
 		if ( this.getDiasTotaisRequisitados() < diasDisponiveisParaFerias ) {
 			return (
-				diasDisponiveisParaFerias - this.getDiasTotaisRequisitados() < DIAS_MINIMOS_FERIAS_FRACIONADAS
+				diasDisponiveisParaFerias - this.getDiasTotaisRequisitados() <= DIAS_MINIMOS_FERIAS_FRACIONADAS
 				? TiposFerias.PARCIAL : TiposFerias.FRACIONADA
 			);
 		}

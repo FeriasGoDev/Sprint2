@@ -19,10 +19,7 @@ public class FeriasVendida extends Ferias {
 		this.setDiasVendidos(diasDisponiveis);
 	}
 	
-	public void setDataInicio(LocalDate data) {
-		
-	}
-	public void setDataFim(LocalDate data) {
-		
-	}
+	// Overload para impedir que os métodos que usam datas de inicio/fim de férias criem excessoes
+	public void setDataInicio(LocalDate data) {}
+	public void setDataFim(LocalDate data) {}
 }
