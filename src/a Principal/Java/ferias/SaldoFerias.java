@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 
 /**
- * A classe que representa o saldo e histórico de férias.
+ * A classe que representa o saldo e histÃ³rico de fÃ©rias.
  * 
- * Possui métodos para calcular saldo, bem como a verificação de saldo.
+ * Possui mÃ©todos para calcular saldo, bem como a verificaÃ§Ã£o de saldo.
  * 
- * Creditar dias de férias e controle de faltas através de ponto.
+ * Creditar dias de fÃ©rias e controle de faltas atravÃ©s de ponto.
  * 
- * A classe possui constantes para melhor entendimento e manutenção do código.
+ * A classe possui constantes para melhor entendimento e manutenÃ§Ã£o do cÃ³digo.
  * 
  * @author SENIOR
  *
@@ -22,13 +22,13 @@ public class SaldoFerias {
 	public short INTERVALO_ENTRE_FERIAS_EM_ANOS = 1;
 	public short DIAS_DISPONIVEIS_PARA_FERIAS = 30;
 	
-	// Intervalos na posição [0] a [1] da array, inclusivos;
+	// Intervalos na posiÃ§Ã£o [0] a [1] da array, inclusivos;
 	public short[] INTERVALO_FALTAS_1 = {6, 14};
 	public short[] INTERVALO_FALTAS_2 = {15, 23};
 	public short[] INTERVALO_FALTAS_3 = {24, 32};
-	public short[] INTERVALO_FALTAS_4 = {33}; // até infinitos
+	public short[] INTERVALO_FALTAS_4 = {33}; // atÃ© infinitos
 	
-	// Dias a serem creditados em relação aos intervalos de faltas;
+	// Dias a serem creditados em relaÃ§Ã£o aos intervalos de faltas;
 	public short CREDITOS_FALTAS_1 = 24;
 	public short CREDITOS_FALTAS_2 = 18;
 	public short CREDITOS_FALTAS_3 = 12;
@@ -45,13 +45,13 @@ public class SaldoFerias {
 	}
 
 	/*
-	 * Funcão responsável por definir a data em que os dias disponíveis para férias
-	 * são creditados para os funcionários Quando a estrutura é iniciada, é
-	 * utilizada a informação de admissão do funcionário para calcular o dia em que
-	 * o mesmo recebe suas primeiras férias Para as próximas férias, é utilizada a
-	 * data do ultimo crédito de dias mais 365 anos;
+	 * FuncÃ£o responsÃ¡vel por definir a data em que os dias disponÃ­veis para fÃ©rias
+	 * sÃ£o creditados para os funcionÃ¡rios Quando a estrutura Ã© iniciada, Ã©
+	 * utilizada a informaÃ§Ã£o de admissÃ£o do funcionÃ¡rio para calcular o dia em que
+	 * o mesmo recebe suas primeiras fÃ©rias Para as prÃ³ximas fÃ©rias, Ã© utilizada a
+	 * data do ultimo crÃ©dito de dias mais 365 anos;
 	 * 
-	 * @return Data dos próximos dias de férias disponíveis
+	 * @return Data dos prÃ³ximos dias de fÃ©rias disponÃ­veis
 	 */
 	public LocalDate calcularProximasFerias() {
 		if (this.proximasFerias == null) {
@@ -64,8 +64,8 @@ public class SaldoFerias {
 	}
 
 	/*
-	 * Função responsável por creditar os dias disponíveis para férias. Essa função
-	 * é chamada na data definida pela variável "proximasFerias"
+	 * FunÃ§Ã£o responsÃ¡vel por creditar os dias disponÃ­veis para fÃ©rias. Essa funÃ§Ã£o
+	 * Ã© chamada na data definida pela variÃ¡vel "proximasFerias"
 	 * 
 	 */
 	
@@ -87,4 +87,19 @@ public class SaldoFerias {
 	public short receberFaltasDoControleDePontos() {
 		return 10;
 	} // vem de outra equipe - Controle de Pontos
+}	
+	/ **
+	 * Verifica se possui saldo positivo.
+	 * 
+	 * Consulta o valor de Saldo de Ferias e verifica se ele Ã© positivo.
+	 * 
+	 * @param saldoFerias, da estrutura de dados.
+	 * @return
+	 * /
+	public  static  boolean  verificarSePossuiSaldoDeFerias ( int  saldoFerias ) {
+		boolean podeTirarFerias = saldoFerias >  0  ?  verdadeiro  :  falso ;
+
+		retornar podeTirarFerias;
+	}
+	
 }
