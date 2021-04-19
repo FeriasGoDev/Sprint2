@@ -1,5 +1,10 @@
 package ferias;
 
+/**
+ * Enumera os possiveis tipos de ferias;
+ * @author SPRINT 2
+ *
+ */
 public enum TiposFerias {
 	INVALIDA, // Erro
 	TOTAL, // Todos os dias são utilizados nas férias

@@ -18,6 +18,5 @@ public class TesteFerias {
 //		assertEquals(10, ferias.diasVendidos);
 //
 //	}
-w
 	
 }

@@ -25,19 +25,19 @@ public class Ferias {
 		this.tipoFerias = TiposFerias.INVALIDA;
 	}
 	
-	public Ferias(LocalDate dataInicio, LocalDate dataFim) {
-		this.dataInicio = dataInicio;
+	public Ferias(LocalDate dataInicio, LocalDate dataFim, int diasDisponiveis) {
+		setDataInicio(dataInicio);
 		this.dataFim = dataFim;
 		
 		this.diasTotaisRequisitados = calcularPeriodoFerias(dataInicio, dataFim);
-		this.tipoFerias = classificarFerias(getDiasDisponiveis());
-		this.diasVendidos =  calcularDiasVendidos(getDiasDisponiveis());
+		this.tipoFerias = classificarFerias(diasDisponiveis);
+		this.diasVendidos =  calcularDiasVendidos(diasDisponiveis);
 	}
 	/*TODO: Quando essas férias são aceitas, devemos atualizar o Saldo.diasDisponiveisParaFerias
 	* Essa atualização vai ocorrer na classe que gerencia as solicitações;
 	*/
 	
-	// Setters
+	// Setters - Para fazer automaticamente, alt+shift+S
 	public void setDataInicio(LocalDate data) {
 		this.dataInicio = data;
 	}
@@ -67,13 +67,6 @@ public class Ferias {
 	
 	public TiposFerias getTipo() {return this.tipoFerias;}
 	
-	// Métodos com interface externa
-	
-	public int getDiasDisponiveis() {
-		//TODO: Puxar informação do Saldos.diasDisponiveisParaFerias
-		return 30;
-	}
-
 	/**
 	 * Calcula o intervalo em dias entre os períodos solicitados.
 	 * 
@@ -169,7 +162,7 @@ public class Ferias {
 			} 
 		}
 		// Checagens falharam, retorna falso e invalida as férias;
-		this.setTipoFerias(TiposFerias.INVALIDA);
+		setTipoFerias(TiposFerias.INVALIDA);
 		return false;	 
 	 }
 	
