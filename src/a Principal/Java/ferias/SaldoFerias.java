@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 
 /**
- * A classe que representa o saldo e histÛrico de fÈrias.
+ * A classe que representa o saldo e hist√≥rico de f√©rias.
  * 
- * Possui mÈtodos para calcular saldo, bem como a verificaÁ„o de saldo.
+ * Possui m√©todos para calcular saldo, bem como a verifica√ß√£o de saldo.
  * 
- * Creditar dias de fÈrias e controle de faltas atravÈs de ponto.
+ * Creditar dias de f√©rias e controle de faltas atrav√©s de ponto.
  * 
- * A classe possui constantes para melhor entendimento e manutenÁ„o do cÛdigo.
+ * A classe possui constantes para melhor entendimento e manuten√ß√£o do c√≥digo.
  * 
  * @author SENIOR
  *
@@ -28,7 +28,7 @@ public class SaldoFerias {
 	public short INTERVALO_FALTAS_3 = 24;
 	public short INTERVALO_FALTAS_4 = 33; // atÈ infinitos
 
-	// Dias a serem creditados em relaÁ„o aos intervalos de faltas;
+	
 	public short CREDITOS_FALTAS_1 = 24;
 	public short CREDITOS_FALTAS_2 = 18;
 	public short CREDITOS_FALTAS_3 = 12;
@@ -116,13 +116,13 @@ public class SaldoFerias {
 
 
 	/*
-	 * Func„o respons·vel por definir a data em que os dias disponÌveis para fÈrias
-	 * s„o creditados para os funcion·rios Quando a estrutura È iniciada, È
-	 * utilizada a informaÁ„o de admiss„o do funcion·rio para calcular o dia em que
-	 * o mesmo recebe suas primeiras fÈrias Para as prÛximas fÈrias, È utilizada a
-	 * data do ultimo crÈdito de dias mais 365 anos;
+	 * Func√£o respons√°vel por definir a data em que os dias dispon√≠veis para f√©rias
+	 * s√£o creditados para os funcion√°rios Quando a estrutura √© iniciada, √©
+	 * utilizada a informa√ß√£o de admiss√£o do funcion√°rio para calcular o dia em que
+	 * o mesmo recebe suas primeiras f√©rias Para as pr√≥ximas f√©rias, √© utilizada a
+	 * data do ultimo cr√©dito de dias mais 365 anos;
 	 * 
-	 * @return Data dos prÛximos dias de fÈrias disponÌveis
+	 * @return Data dos pr√≥ximos dias de f√©rias dispon√≠veis
 	 */
 	public LocalDate calcularProximasFerias() {
 		if (this.getProximasFerias() == null) {
@@ -136,8 +136,8 @@ public class SaldoFerias {
 
 	
 	/*
-	 * FunÁ„o respons·vel por creditar os dias disponÌveis para fÈrias. Essa funÁ„o
-	 * È chamada na data definida pela vari·vel "proximasFerias"
+	 * Fun√ß√£o respons√°vel por creditar os dias dispon√≠veis para f√©rias. Essa fun√ß√£o
+	 * √© chamada na data definida pela vari√°vel "proximasFerias"
 	 * 
 	 */
 	
@@ -174,5 +174,4 @@ public class SaldoFerias {
 
 		return podeTirarFerias;
 	}
-
 }
