@@ -13,7 +13,7 @@ public class TesteFerias {
 	@Test
 	public void calculaProximasFeriasdoUsuario() {
 		SaldoFerias proximaFerias = new SaldoFerias(); //Aqui dentro, no consturtor proximasFerias é calculada
-		assertEquals(LocalDate.of(2022, 4, 16), proximaFerias.proximasFerias);
+		assertEquals(LocalDate.of(2022, 4, 19), proximaFerias.getProximasFerias());
 	}
 
 // Generalizar para a função receber faltasDoControleDePonto
@@ -25,4 +25,10 @@ public void creditoDeFerias() {
 	assertEquals(24, creditoDias.creditarDiasDeFerias());
  }
 	
+	public void CreditarDiasDasFerias() {
+		SaldoFerias creditoferias = new SaldoFerias();
+		assertEquals(24, creditoferias.creditarDiasDeFerias());
+		
+		
+	}
 }
