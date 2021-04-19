@@ -19,7 +19,7 @@ public class Ferias {
 	private int diasVendidos;
 	private TiposFerias tipoFerias;
 
-	public short DIAS_MINIMOS_FERIAS_FRACIONADAS = 14;
+	public short CREDITOS_MINIMOS_FERIAS_FRACIONADAS = 14;
 
 	public Ferias() {
 		this.tipoFerias = TiposFerias.INVALIDA;
@@ -102,7 +102,7 @@ public class Ferias {
 		// Verificando a quantidade de dias de férias que foram requisitadas para classificaçãp;
 		if ( this.getDiasTotaisRequisitados() < diasDisponiveisParaFerias ) {
 			return (
-				diasDisponiveisParaFerias - this.getDiasTotaisRequisitados() <= DIAS_MINIMOS_FERIAS_FRACIONADAS
+				diasDisponiveisParaFerias - this.getDiasTotaisRequisitados() <= CREDITOS_MINIMOS_FERIAS_FRACIONADAS
 				? TiposFerias.PARCIAL : TiposFerias.FRACIONADA
 			);
 		}
