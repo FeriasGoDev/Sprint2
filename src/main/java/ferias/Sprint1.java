@@ -1,6 +1,7 @@
 package ferias;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -116,7 +117,7 @@ public class Sprint1 {
 
 	//Janaina <<<<<<<<<< start
 	
-	static int[] saldoDeFerias = { 20, 30, 15, 10 };
+	static int[] saldoDeFerias1 = { 20, 30, 15, 10 };
 	static String[][] colaboradores = new String[2][3];
 	static LocalDate inicio = LocalDate.of(2019, 01, 15);
 	static LocalDate termino = LocalDate.of(2019, 01, 01);
@@ -191,7 +192,7 @@ public class Sprint1 {
 	 * @return
 	 */
 	public static int pegarSaldo(int idColaborador) {
-		int saldo = saldoDeFerias[idColaborador];
+		int saldo = saldoDeFerias1[idColaborador];
 		return saldo;
 
 	}
@@ -359,7 +360,7 @@ public class Sprint1 {
 	 * @return saldo de férias
 	 */
 	public static int consultarSaldo(int id) {
-		int saldo = saldoDeFerias[id];
+		int saldo = saldoDeFerias1[id];
 		System.out.println("Você possui " + saldo + " dias de férias");
 		return saldo;
 	}
