@@ -6,17 +6,19 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Sprint1 {
-	
+
 	/**
 	 * Verifica intervalo entre data da solicitação e data de inicio das férias
 	 * 
-	 * Verifica se a data de início das férias solicitada é 10 dias após a data de solicitação, retornando verdadeiro caso seja.
+	 * Verifica se a data de início das férias solicitada é 10 dias após a data de
+	 * solicitação, retornando verdadeiro caso seja.
 	 * 
 	 * @param dataInicioFerias LocalDateTime - data de ínicio de férias solicitada
 	 * @return boolean, de acordo com a condição (maior que 10 dias)
 	 */
 	public static boolean verificarDataSolicitacao(LocalDateTime dataInicioFerias) {
-		boolean intervaloSuperior10dias = LocalDateTime.now().until(dataInicioFerias, ChronoUnit.DAYS) > 10? true : false;
+		boolean intervaloSuperior10dias = LocalDateTime.now().until(dataInicioFerias, ChronoUnit.DAYS) > 10 ? true
+				: false;
 		return intervaloSuperior10dias;
 	}
 //	/**
@@ -115,10 +117,8 @@ public class Sprint1 {
 //		return dataFimFerias;
 //	}
 
-	//Janaina <<<<<<<<<< start
-	
-	
-	
+// Janaina <<<<<<<<<< start
+
 	static int[] saldoDeFerias = { 20, 30, 15, 10 };
 	static String[][] colaboradores = new String[2][3];
 	static LocalDate inicio = LocalDate.of(2019, 01, 15);
@@ -136,18 +136,18 @@ public class Sprint1 {
 	 */
 
 	public static void gerarColaboradores() {
-		colaboradores[0][0] = "Pessoa 1"; //categoria 0
+		colaboradores[0][0] = "Pessoa 1"; // categoria 0
 		colaboradores[0][1] = "Pessoa 2";
 		colaboradores[0][2] = "Pessoa 3";
 
-		colaboradores[1][0] = "Pessoa 5"; //categoria 1
+		colaboradores[1][0] = "Pessoa 5"; // categoria 1
 		colaboradores[1][1] = "Pessoa 6";
 		colaboradores[1][2] = "Pessoa 7";
 	}
 
 	// O sistema recebe o colaborador e verifica se ele possui saldo de férias
 	// positivo.
-	
+
 	/**
 	 * Verifica se possui saldo positivo.
 	 * 
@@ -295,8 +295,8 @@ public class Sprint1 {
 	 * período e datas de início e fim.
 	 * 
 	 * @param idTipoDePeriodo
-	 * @param dataInicio Nova data de início do período.
-	 * @param dataTermino Nova data de término do período.
+	 * @param dataInicio      Nova data de início do período.
+	 * @param dataTermino     Nova data de término do período.
 	 * @return
 	 */
 	public static String informarNovoPeriodoDeConcessaoParcial(int idTipoDePeriodo, LocalDate dataInicio,
@@ -331,8 +331,8 @@ public class Sprint1 {
 	 * atual e do período novo.
 	 * 
 	 * @param periodoAtual Quantidade de dias do período atual a ser alterado.
-	 * @param dataInicio Data de início do período.
-	 * @param dataTermino Data de término do período.
+	 * @param dataInicio   Data de início do período.
+	 * @param dataTermino  Data de término do período.
 	 * @return
 	 */
 	public static boolean novoPeriodoEhValido(int periodoAtual, LocalDate dataInicio, LocalDate dataTermino) {
@@ -344,16 +344,16 @@ public class Sprint1 {
 		}
 		return periodoValido;
 	}
-	
-	////Janaina <<<<<<<<<< end
-	
+
+	//// Janaina <<<<<<<<<< end
+
 	// BRUNO START
-	
-	//Varaveis com dados que deveriam vir do banco de dados
+
+	// Varaveis com dados que deveriam vir do banco de dados
 	static int[] listaDeColaboradores = { 0, 1, 4 };// lista com id de colaboradores
 	//static int[] saldoDeFerias = { 30, 25, 40, 10, 5 }; // substituir por valor recebido do Banco de dados
 	static int recebeColaboradores = 1; // recebe colaboradores do Banco de dados
-	
+
 	/**
 	 * Consulta saldo de férias Recebe um id de colaborador e utiliza ele como
 	 * parametro para encontrar o saldo de férias que está em no vetor saldoDeFerias
@@ -369,46 +369,49 @@ public class Sprint1 {
 	}
 
 	/**
-	 * Verifica se possúi colaboradores na equipe 
-	 * Verifica se o usúario possúi colaboradores em sua equipe atravé de valor recebido
+	 * Verifica se possúi colaboradores na equipe Verifica se o usúario possúi
+	 * colaboradores em sua equipe atravé de valor recebido
 	 * 
 	 * @author Bruno Marques
-	 * @param id int Recebe um valor (quantidade de funcionarios) para fazer a validação
+	 * @param id int Recebe um valor (quantidade de funcionarios) para fazer a
+	 *           validação
 	 * @return possuiColab true ou false
 	 */
 	0
 	}
-/**
- * Consulta férias de membros da equipe
- * Após verificar se o usúario possúi colaboradores em sua equipe, 
- * o sistema retorna quais colaboradores são da equipe e o saldo de férias de cada um
- * 
- * @author Bruno Marques
- * @param listaDeColaboradores int[] recebe vetor com lista de colaboradores
- * @param saldoDeFerias int[] recebe vetor com saldo de férias por colaborador
- * @return uma lista com uma lista de colaoradres da equipe e outra lista de saldo de férias de cada um
- */
-	public static ArrayList<Integer>  consultaSituacaoDeFeriasDaEquipe(int[] listaDeColaboradores,
-			int[] saldoDeFerias) {
+
+	/**
+	 * Consulta férias de membros da equipe Após verificar se o usúario possúi
+	 * colaboradores em sua equipe, o sistema retorna quais colaboradores são da
+	 * equipe e o saldo de férias de cada um
+	 * 
+	 * @author Bruno Marques
+	 * @param listaDeColaboradores int[] recebe vetor com lista de colaboradores
+	 * @param saldoDeFerias        int[] recebe vetor com saldo de férias por
+	 *                             colaborador
+	 * @return uma lista com uma lista de colaoradres da equipe e outra lista de
+	 *         saldo de férias de cada um
+	 */
+	public static ArrayList<Integer> consultaSituacaoDeFeriasDaEquipe(int[] listaDeColaboradores, int[] saldoDeFerias) {
 		ArrayList<Integer> lista = new ArrayList<Integer>();
 		if (consultarColaboraoresDaEquipe(recebeColaboradores)) {
 			System.out.println("Você possui " + listaDeColaboradores.length + " colaboradores em sua equipe.");
 			for (int c = 0; c < listaDeColaboradores.length; c++) {
 				int colab = listaDeColaboradores[c];
 				lista.add(saldoDeFerias[colab]);
-				System.out.println("O colaborador de id " + listaDeColaboradores[c] + " possui " +
-				saldoDeFerias[c] + " dias de férias." );
+				System.out.println("O colaborador de id " + listaDeColaboradores[c] + " possui " + saldoDeFerias[c]
+						+ " dias de férias.");
 			}
 		} else {
 			System.out.println("O usuário não possui colaboradores em sua equipe");
 		}
 		return lista;
 	}
-	
-	//BRUNO END
+
+	// BRUNO END
 //DANI 
 	public String[][] chamados = new String[4][3];
-	
+
 	/**
 	 * Pegar lista de chamados pendentes.
 	 * 
@@ -473,7 +476,7 @@ public class Sprint1 {
 		}
 		return nomeChamado;
 	}
-	
+
 	public void criarChamados() {
 		chamados[0][0] = "chamado 01";
 		chamados[0][1] = "chamado 02";
@@ -492,7 +495,7 @@ public class Sprint1 {
 		chamados[3][2] = "chamado 3";
 	}
 
-	public  void consultaChamadosPendentes() {
+	public void consultaChamadosPendentes() {
 		// usuário clicou em consultar chamados pendentes
 		int tipoChamado = 0;
 		String[] chamados = getChamados(tipoChamado);
