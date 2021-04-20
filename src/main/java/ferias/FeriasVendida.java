@@ -3,6 +3,8 @@ package ferias;
 import java.time.LocalDate;
 
 public class FeriasVendida extends Ferias {
+	
+	public int DIAS_MAXIMOS_A_VENDER = 30;
 
 	/**
 	 * Instancia um objeto FeriasVendida, que não tem data de inicio e data de fim;
@@ -16,7 +18,9 @@ public class FeriasVendida extends Ferias {
 		
 		this.setTipoFerias(TiposFerias.VENDIDA);
 		this.setDiasTotaisRequisitados(0);
-		this.setDiasVendidos(diasAVender);
+		
+		int diasVendidos = (diasAVender > DIAS_MAXIMOS_A_VENDER)?  DIAS_MAXIMOS_A_VENDER : diasAVender;
+		this.setDiasVendidos(diasVendidos);
 	}
 	
 	// Overload para impedir que os métodos que usam datas de inicio/fim de férias criem excessoes

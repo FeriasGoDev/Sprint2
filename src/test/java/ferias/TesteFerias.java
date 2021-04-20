@@ -58,6 +58,14 @@ public class TesteFerias {
 	}
 	
 	@Test
+	public void feriasVendidaAcimaDoLimite() {
+		FeriasVendida ferias = new FeriasVendida(40); // 40 creditos para vender
+		assertTrue(ferias.checarValidade());
+		assertTrue(ferias.getDiasVendidos() == ferias.DIAS_MAXIMOS_A_VENDER);
+		assertEquals(TiposFerias.VENDIDA, ferias.getTipo());
+	}
+	
+	@Test
 	public void feriasInvalida_DataInicioPosteriorADataFim() {
 		LocalDate data1 = LocalDate.of(2021, 6, 15);
 		LocalDate data2 = LocalDate.of(2021, 5, 15);
