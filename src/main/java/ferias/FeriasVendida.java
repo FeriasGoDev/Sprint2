@@ -8,15 +8,15 @@ public class FeriasVendida extends Ferias {
 	 * Instancia um objeto FeriasVendida, que não tem data de inicio e data de fim;
 	 * 
 	 * @author SPRINT 2
-	 * @param diasDisponiveis - dias em creditos para férias
+	 * @param diasAVender - dias em creditos para férias
 	 */
-	public FeriasVendida(int diasDisponiveis) {
+	public FeriasVendida(int diasAVender) {
 		//this.dataInicio = null;
 		//this.dataFim = null;
 		
 		this.setTipoFerias(TiposFerias.VENDIDA);
 		this.setDiasTotaisRequisitados(0);
-		this.setDiasVendidos(diasDisponiveis);
+		this.setDiasVendidos(diasAVender);
 	}
 	
 	// Overload para impedir que os métodos que usam datas de inicio/fim de férias criem excessoes

@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
 //TODO: Documentar
 public class FeriasRequerimento {
 	private String identificadorUsuario; // FK Foreign Key do usuário
+	
 	private Ferias feriasRequisitada; // Instância de Férias
 	private EstadosRequisicao estadoRequisicao; // ENUM
 	private LocalDate dataSolicitacao;
@@ -29,6 +30,8 @@ public class FeriasRequerimento {
 		this.identificadorUsuario = identificadorUsuario;
 	}
 
+	
+	
 	public Ferias getFeriasRequisitada() {
 		return feriasRequisitada;
 	}

@@ -34,12 +34,12 @@ public class SaldoFerias {
 	public short CREDITOS_FALTAS_3 = 12;
 	public short CREDITOS_FALTAS_4 = 0;
 
-	private String identificadorUsuario; // FK Foreign Key do usuário
+	private String identificadorUsuario; // FK Foreign Key do usuário - Decidir quais classes tem
 	
 	private LocalDate proximasFerias;
 	private int diasDisponiveisDeFerias; // Vai ser preenchido na data "proximasFerias"
 	private ArrayList<Ferias> historicoFerias;
-	private ArrayList<FeriasRequerimento> historicoRequimentos;
+	private ArrayList<FeriasRequerimento> historicoRequerimentos;
 	// Adicionar metodos para adicionar e remover itens nas ArrayLists (getters e setters)
 
 
@@ -50,7 +50,19 @@ public class SaldoFerias {
 		proximasFerias = calcularProximasFerias();
 		diasDisponiveisDeFerias = 0;
 		historicoFerias = new ArrayList<Ferias>();
-		historicoRequimentos = new ArrayList<FeriasRequerimento>();
+		historicoRequerimentos = new ArrayList<FeriasRequerimento>();
+	}
+
+	
+
+	public String getIdentificadorUsuario() {
+		return identificadorUsuario;
+	}
+
+
+
+	public void setIdentificadorUsuario(String identificadorUsuario) {
+		this.identificadorUsuario = identificadorUsuario;
 	}
 
 
@@ -84,7 +96,7 @@ public class SaldoFerias {
 	}
 
 	public ArrayList<FeriasRequerimento>getHistoricoRequimentos() {
-		return historicoRequimentos;
+		return historicoRequerimentos;
 	}
 	
 	// Nao devemos substituir a lista, ela já esta instanciada no construtor.
@@ -108,10 +120,10 @@ public class SaldoFerias {
 	}
 
 	public void adicionarHistoricoRequerimentos(FeriasRequerimento req) {
-		this.historicoRequimentos.add(req);
+		this.historicoRequerimentos.add(req);
 	}
 	public void removerHistoricoRequerimentos(FeriasRequerimento req) {
-		this.historicoRequimentos.remove(req);
+		this.historicoRequerimentos.remove(req);
 	}
 
 

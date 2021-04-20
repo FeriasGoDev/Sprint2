@@ -13,6 +13,8 @@ import java.time.temporal.ChronoUnit;
  *
  */
 public class Ferias {
+	private String identificadorUsuario; // FK Foreign Key do usuário - Decidir quais classes tem
+	
 	private LocalDate dataInicio;
 	private LocalDate dataFim;
 	private int diasTotaisRequisitados;
@@ -38,6 +40,15 @@ public class Ferias {
 	/*TODO: Quando essas férias são aceitas, devemos atualizar o Saldo.diasDisponiveisParaFerias
 	* Essa atualização vai ocorrer na classe que gerencia as solicitações;
 	*/
+	
+	public String getIdentificadorUsuario() {
+		return identificadorUsuario;
+	}
+
+	public void setIdentificadorUsuario(String identificadorUsuario) {
+		this.identificadorUsuario = identificadorUsuario;
+	}
+	
 	
 	// Setters - Para fazer automaticamente, alt+shift+S
 	public void setDataInicio(LocalDate data) {
