@@ -89,15 +89,12 @@ public class SaldoFerias {
 	//	this.historicoFerias = historicoFerias;
 	//}
 
-
-
-
-
 	//public void setHistoricoRequimentos(
 	//		ArrayList<FeriasRequerimento> historicoRequimentos) {
 	//	this.historicoRequimentos = historicoRequimentos;
 	//}
 
+	
 	// Metodos para modificar as ArrayLists
 
 	public void adicionarHistoricoFerias(Ferias ferias) {
