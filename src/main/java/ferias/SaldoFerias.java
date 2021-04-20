@@ -34,6 +34,8 @@ public class SaldoFerias {
 	public short CREDITOS_FALTAS_3 = 12;
 	public short CREDITOS_FALTAS_4 = 0;
 
+	private String identificadorUsuario; // FK Foreign Key do usuário
+	
 	private LocalDate proximasFerias;
 	private int diasDisponiveisDeFerias; // Vai ser preenchido na data "proximasFerias"
 	private ArrayList<Ferias> historicoFerias;
@@ -43,6 +45,8 @@ public class SaldoFerias {
 
 
 	public SaldoFerias() {
+		identificadorUsuario = "todo"; // FK Foreign Key do usuário
+		
 		proximasFerias = calcularProximasFerias();
 		diasDisponiveisDeFerias = 0;
 		historicoFerias = new ArrayList<Ferias>();
@@ -94,7 +98,6 @@ public class SaldoFerias {
 	//	this.historicoRequimentos = historicoRequimentos;
 	//}
 
-	
 	// Metodos para modificar as ArrayLists
 
 	public void adicionarHistoricoFerias(Ferias ferias) {
@@ -171,4 +174,95 @@ public class SaldoFerias {
 
 		return podeTirarFerias;
 	}
+	
+	/**
+	 * Pegar lista de chamados do tipoDesejado
+	 * 
+	 * tipoDesjado tem como opções os termos do enum EstadosRequisicao
+	 * 
+	 * Retorna uma lista de FeriasRequerimento contendo os requerimentos que possuem status desejado.
+	 * 
+	 * @param listarequerimentos
+	 * @return
+	 */
+	public ArrayList<FeriasRequerimento> receberRequerimentosEmEstado(EstadosRequisicao tipoDesejado){
+		ArrayList<FeriasRequerimento> pendentes = new ArrayList<FeriasRequerimento>();
+		
+		for(FeriasRequerimento reqFerias : getHistoricoRequimentos()) {
+			if (reqFerias.getEstadoRequisicao() == tipoDesejado) {
+				pendentes.add(reqFerias);
+			}
+		}
+		
+		return pendentes;
+	}
+	
+	/**
+	 * Verificar se existem chamados do tipoDesejado.
+	 * 
+	 *
+	 * @return quantidade de requerimentos do tipoDesejado
+	 */
+	public int verificaQuantiaRequerimentosDeTipo(EstadosRequisicao tipoDesejado) {
+		ArrayList<FeriasRequerimento> lista = new ArrayList<FeriasRequerimento>();
+		lista = receberRequerimentosEmEstado(tipoDesejado);
+		return lista.size();
+	}
+	
+	/**
+	 * Verificar se existem requerimentos.
+	 * 
+	 *
+	 * @return quantidade de requerimentos do tipoDesejado
+	 */
+	public int verificaQuantiaRequerimentos() {
+		return getHistoricoRequimentos().size();
+	}
+	
+	
+	/**
+	 * Pegar lista de ferias do tipoDesejado
+	 * 
+	 * tipoDesjado tem como opções os termos do enum TiposFerias
+	 * 
+	 * Retorna uma lista de Ferias contendo os chamados que possuem status desejado.
+	 * 
+	 * @param listaChamados
+	 * @return
+	 */
+	public ArrayList<Ferias> receberFeriasEmEstado(TiposFerias tipoDesejado){
+		ArrayList<Ferias> lista = new ArrayList<Ferias>();
+		
+		for(Ferias ferias : getHistoricoFerias()) {
+			if (ferias.getTipo() == tipoDesejado) {
+				lista.add(ferias);
+			}
+		}
+		return lista;
+	}
+	
+	/**
+	 * Verificar se existem ferias do tipoDesejado.
+	 * 
+	 *
+	 * @return quantidade de ferias do tipoDesejado
+	 */
+	public int verificaQuantiaFeriasDeTipoNoHistorico(TiposFerias tipoDesejado) {
+		ArrayList<Ferias> lista = new ArrayList<Ferias>();
+		lista = receberFeriasEmEstado(tipoDesejado);
+		return lista.size();
+	}
+	
+	/**
+	 * Verificar se existem requerimentos.
+	 * 
+	 *
+	 * @return quantidade de requerimentos do tipoDesejado
+	 */
+	public int verificaQuantidadeHistoricoFerias() {
+		return getHistoricoFerias().size();
+	}
+	
+	
+	
 }
