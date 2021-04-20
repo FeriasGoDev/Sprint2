@@ -4,10 +4,15 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 /**
  * 
- * @author Jonata e Leonardo Pereira
- *
+ * @author Jonata e Leonardo Pereira 
+ * A classe FeriasRequerimento é responsavel por verificar quantos 
+ * dias o funcionario solicitou suas férias antes da data pretendida 
+ * (não menor de 10 dias). 
+ * Esta verificação é feita pelo metodo validacaoPrazoSolicitacaoDeFerias
+ * e o calculo é feito pelo metodo retornarIntervaloEmDiasEntreAsDatas.
+ * A classe também possui o metodo de trazer o estado da requisição 
+ * que podera ser EM_ANALISE, APROVADO, REPROVADO.
  */
-//TODO: Documentar
 public class FeriasRequerimento {
 	private String identificadorUsuario; // FK Foreign Key do usuário
 	
