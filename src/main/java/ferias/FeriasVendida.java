@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class FeriasVendida extends Ferias {
 	
-	public int DIAS_MAXIMOS_A_VENDER = 30;
+	protected final short DIAS_MAXIMOS_A_VENDER = 30;
 
 	/**
-	 * Instancia um objeto FeriasVendida, que não tem data de inicio e data de fim;
+	 * Instancia um objeto FeriasVendida, que nï¿½o tem data de inicio e data de fim;
 	 * 
 	 * @author SPRINT 2
-	 * @param diasAVender - dias em creditos para férias
+	 * @param diasAVender - dias em creditos para fï¿½rias
 	 */
 	public FeriasVendida(int diasAVender) {
 		//this.dataInicio = null;
@@ -23,7 +23,7 @@ public class FeriasVendida extends Ferias {
 		this.setDiasVendidos(diasVendidos);
 	}
 	
-	// Overload para impedir que os métodos que usam datas de inicio/fim de férias criem excessoes
+	// Overload para impedir que os mï¿½todos que usam datas de inicio/fim de fï¿½rias criem excessoes
 	public void setDataInicio(LocalDate data) {}
 	public void setDataFim(LocalDate data) {}
 }

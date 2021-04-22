@@ -4,16 +4,16 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 /**
- * Classe que representa a estrutura de dados de uma "unidade" de Férias.
- * Para instanciar uma nova Férias, é necessário informar as datas de início e fim da mesma.
- * O construtor calcula o Período em dias entre as datas, calcula dias a serem vendidos se necessário
- * e classifica as férias em um dos tipos disponíveis no sistema.
+ * Classe que representa a estrutura de dados de uma "unidade" de Fï¿½rias.
+ * Para instanciar uma nova Fï¿½rias, ï¿½ necessï¿½rio informar as datas de inï¿½cio e fim da mesma.
+ * O construtor calcula o Perï¿½odo em dias entre as datas, calcula dias a serem vendidos se necessï¿½rio
+ * e classifica as fï¿½rias em um dos tipos disponï¿½veis no sistema.
  * 
  * @author Sprint2
  *
  */
 public class Ferias {
-	private String identificadorUsuario; // FK Foreign Key do usuário - Decidir quais classes tem
+	private String identificadorUsuario; // FK Foreign Key do usuï¿½rio - Decidir quais classes tem
 	
 	private LocalDate dataInicio;
 	private LocalDate dataFim;
@@ -21,7 +21,7 @@ public class Ferias {
 	private int diasVendidos;
 	private TiposFerias tipoFerias;
 
-	public short CREDITOS_MINIMOS_FERIAS_FRACIONADAS = 14;
+	protected final short CREDITOS_MINIMOS_FERIAS_FRACIONADAS = 14;
 
 	public Ferias() {
 		this.tipoFerias = TiposFerias.INVALIDA;
@@ -37,8 +37,8 @@ public class Ferias {
 		setTipoFerias(classificarFerias(diasDisponiveis));
 		setDiasVendidos(calcularDiasVendidos(diasDisponiveis));
 	}
-	/*TODO: Quando essas férias são aceitas, devemos atualizar o Saldo.diasDisponiveisParaFerias
-	* Essa atualização vai ocorrer na classe que gerencia as solicitações;
+	/*TODO: Quando essas fï¿½rias sï¿½o aceitas, devemos atualizar o Saldo.diasDisponiveisParaFerias
+	* Essa atualizaï¿½ï¿½o vai ocorrer na classe que gerencia as solicitaï¿½ï¿½es;
 	*/
 	
 	public String getIdentificadorUsuario() {
@@ -81,14 +81,14 @@ public class Ferias {
 	public TiposFerias getTipo() {return this.tipoFerias;}
 	
 	/**
-	 * Calcula o intervalo em dias entre os períodos solicitados.
+	 * Calcula o intervalo em dias entre os perï¿½odos solicitados.
 	 * 
 	 * @param dataInicioFerias
 	 * @param dataFimFerias
-	 * @return intervalo em dias entre as datas, -1 se inválido;
+	 * @return intervalo em dias entre as datas, -1 se invï¿½lido;
 	 */
 	public int calcularPeriodoFerias(LocalDate dataInicioFerias, LocalDate dataFimFerias) {
-		// Checando a classe FeriasVendida, que não tem dataInicio e dataFim
+		// Checando a classe FeriasVendida, que nï¿½o tem dataInicio e dataFim
 		if(dataInicioFerias == null || dataFimFerias == null) {return 0;}
 		// Checando a classe principal;
 		if (periodoFeriasValido(dataInicioFerias, dataFimFerias)) {
@@ -96,25 +96,25 @@ public class Ferias {
 		}
 		else {
 			setTipoFerias(TiposFerias.INVALIDA);
-			return -1; // -1 para dexar claro que o periodo é inválido;
+			return -1; // -1 para dexar claro que o periodo ï¿½ invï¿½lido;
 		}
 	}
 
 	/**
-	 * Classifica o tipo de férias com base nos dias de férias disponíveis ao funcionário.
-	 * É realizada uma comparação entre os diasTotaisRequisitados para férias e os dias em crédito.
+	 * Classifica o tipo de fï¿½rias com base nos dias de fï¿½rias disponï¿½veis ao funcionï¿½rio.
+	 * ï¿½ realizada uma comparaï¿½ï¿½o entre os diasTotaisRequisitados para fï¿½rias e os dias em crï¿½dito.
 	 * Os tipos de ferias estao listados no ENUM TiposFerias
 	 * 
 	 * @param diasDisponiveisParaFerias - vem da classe SaldoFerias
-	 * @return TiposFerias classificação
+	 * @return TiposFerias classificaï¿½ï¿½o
 	 */
 	public TiposFerias classificarFerias(int diasDisponiveisParaFerias) {
-		// Para avaliar o tipo de férias, é necessário mais do que 1 dia disponível para férias
+		// Para avaliar o tipo de fï¿½rias, ï¿½ necessï¿½rio mais do que 1 dia disponï¿½vel para fï¿½rias
 		if (diasDisponiveisParaFerias==0) {
 			return TiposFerias.INVALIDA;
 		}
 		
-		// Verificando a quantidade de dias de férias que foram requisitadas para classificação;
+		// Verificando a quantidade de dias de fï¿½rias que foram requisitadas para classificaï¿½ï¿½o;
 		if ( this.getDiasTotaisRequisitados() < diasDisponiveisParaFerias ) {
 			return (
 				diasDisponiveisParaFerias - this.getDiasTotaisRequisitados() <= CREDITOS_MINIMOS_FERIAS_FRACIONADAS
@@ -133,8 +133,8 @@ public class Ferias {
 	}
 
 	/**
-	 * Calcula os dias a serem vendidos com base nos dias de férias disponíveis ao funcionário e no
-	 * tipo de férias; Apenas os tipos PARCIAL e VENDIDA vão ter dias a serem vendidos.
+	 * Calcula os dias a serem vendidos com base nos dias de fï¿½rias disponï¿½veis ao funcionï¿½rio e no
+	 * tipo de fï¿½rias; Apenas os tipos PARCIAL e VENDIDA vï¿½o ter dias a serem vendidos.
 	 * 
 	 * @param diasDisponiveisParaFerias - vem da classe SaldoFerias
 	 * @return int dias a serem vendidos
@@ -147,7 +147,7 @@ public class Ferias {
 		}
 	}
 	
-	/** Verifica se o objeto de férias é valido, se falhar as checagens o tipo é alterado para INVALIDO.
+	/** Verifica se o objeto de fï¿½rias ï¿½ valido, se falhar as checagens o tipo ï¿½ alterado para INVALIDO.
 	 * 
 	 * uso : 
 	 * Ferias X = new Ferias(inicio, fim);
@@ -156,7 +156,7 @@ public class Ferias {
 	 * @return true/false
 	 */
 	public boolean checarValidade() {
-		// Checagem específica para ferias Vendida
+		// Checagem especï¿½fica para ferias Vendida
 		if(this.getTipo() == TiposFerias.VENDIDA)
 		{
 			if (this.getDiasVendidos()>0 && this.getDiasTotaisRequisitados()==0) return true;
@@ -177,12 +177,12 @@ public class Ferias {
 				}
 			} 
 		}
-		// Checagens falharam, retorna falso e invalida as férias;
+		// Checagens falharam, retorna falso e invalida as fï¿½rias;
 		setTipoFerias(TiposFerias.INVALIDA);
 		return false;	 
 	 }
 	
-	/** Verifica se a data de inicio de férias vem antes da data de fim desejado.
+	/** Verifica se a data de inicio de fï¿½rias vem antes da data de fim desejado.
 	 * 
 	 * @param dataInicio
 	 * @param dataFim

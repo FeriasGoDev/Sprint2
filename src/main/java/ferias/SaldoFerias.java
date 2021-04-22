@@ -19,20 +19,20 @@ import java.util.ArrayList;
  */
 public class SaldoFerias {
 	//SCREAMING_SNAKE_CASE
-	public short INTERVALO_ENTRE_FERIAS_EM_ANOS = 1;
-	public short DIAS_DISPONIVEIS_PARA_FERIAS = 30;
+	protected final short INTERVALO_ENTRE_FERIAS_EM_ANOS = 1;
+	protected final short DIAS_DISPONIVEIS_PARA_FERIAS = 30;
 
 	// Intervalos na posi��o [0] a [1] da array, inclusivos;
-	public short INTERVALO_FALTAS_1 = 6;
-	public short INTERVALO_FALTAS_2 = 15;
-	public short INTERVALO_FALTAS_3 = 24;
-	public short INTERVALO_FALTAS_4 = 33; // at� infinitos
+	protected final short INTERVALO_FALTAS_1 = 6;
+	protected final short INTERVALO_FALTAS_2 = 15;
+	protected final short INTERVALO_FALTAS_3 = 24;
+	protected final short INTERVALO_FALTAS_4 = 33; // at� infinitos
 
 	
-	public short CREDITOS_FALTAS_1 = 24;
-	public short CREDITOS_FALTAS_2 = 18;
-	public short CREDITOS_FALTAS_3 = 12;
-	public short CREDITOS_FALTAS_4 = 0;
+	protected final short CREDITOS_FALTAS_1 = 24;
+	protected final short CREDITOS_FALTAS_2 = 18;
+	protected final short CREDITOS_FALTAS_3 = 12;
+	protected final short CREDITOS_FALTAS_4 = 0;
 
 	private String identificadorUsuario; // FK Foreign Key do usu�rio - Decidir quais classes tem
 	
