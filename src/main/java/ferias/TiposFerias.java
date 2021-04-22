@@ -2,8 +2,8 @@ package ferias;
 
 public enum TiposFerias {
 	INVALIDA, // Erro
-	TOTAL, // Todos os dias s„o utilizados nas fÈrias
-	PARCIAL, // FÈrias com uma fraÁ„o dos dias disponÌveis, o restante È automaticamente vendido
-	FRACIONADA, // Ferias com uma fraÁ„o dos dias disponiveis, o restante continua como credito
-	VENDIDA // Vende todos os dias disponÌveis
+	TOTAL, // Todos os dias s√£o utilizados nas f√©rias
+	PARCIAL, // F√©rias com uma fra√ß√£o dos dias dispon√≠veis, o restante √© automaticamente vendido
+	FRACIONADA, // Ferias com uma fra√ß√£o dos dias disponiveis, o restante continua como credito
+	VENDIDA // Vende todos os dias dispon√≠veis
 }
