@@ -30,12 +30,12 @@ public class Ferias {
 	// diasDisponiveis vem do Saldo
 	public Ferias(LocalDate dataInicio, LocalDate dataFim, int diasDisponiveis) {
 		setDataInicio(dataInicio);
-		this.dataFim = dataFim;
+		setDataFim(dataFim);
 		
-		this.diasTotaisRequisitados = calcularPeriodoFerias(dataInicio, dataFim);
+		setDiasTotaisRequisitados(calcularPeriodoFerias(dataInicio, dataFim));
 		
-		this.tipoFerias = classificarFerias(diasDisponiveis);
-		this.diasVendidos =  calcularDiasVendidos(diasDisponiveis);
+		setTipoFerias(classificarFerias(diasDisponiveis));
+		setDiasVendidos(calcularDiasVendidos(diasDisponiveis));
 	}
 	/*TODO: Quando essas férias são aceitas, devemos atualizar o Saldo.diasDisponiveisParaFerias
 	* Essa atualização vai ocorrer na classe que gerencia as solicitações;
@@ -87,14 +87,17 @@ public class Ferias {
 	 * @param dataFimFerias
 	 * @return intervalo em dias entre as datas, -1 se inválido;
 	 */
-	public static int calcularPeriodoFerias(LocalDate dataInicioFerias, LocalDate dataFimFerias) {
+	public int calcularPeriodoFerias(LocalDate dataInicioFerias, LocalDate dataFimFerias) {
 		// Checando a classe FeriasVendida, que não tem dataInicio e dataFim
-		if(dataInicioFerias == null && dataFimFerias == null) {return 0;}
+		if(dataInicioFerias == null || dataFimFerias == null) {return 0;}
 		// Checando a classe principal;
 		if (periodoFeriasValido(dataInicioFerias, dataFimFerias)) {
 			return (int) dataInicioFerias.until(dataFimFerias, ChronoUnit.DAYS);
 		}
-		else return -1;
+		else {
+			setTipoFerias(TiposFerias.INVALIDA);
+			return -1; // -1 para dexar claro que o periodo é inválido;
+		}
 	}
 
 	/**
@@ -111,7 +114,7 @@ public class Ferias {
 			return TiposFerias.INVALIDA;
 		}
 		
-		// Verificando a quantidade de dias de férias que foram requisitadas para classificaçãp;
+		// Verificando a quantidade de dias de férias que foram requisitadas para classificação;
 		if ( this.getDiasTotaisRequisitados() < diasDisponiveisParaFerias ) {
 			return (
 				diasDisponiveisParaFerias - this.getDiasTotaisRequisitados() <= CREDITOS_MINIMOS_FERIAS_FRACIONADAS
@@ -148,7 +151,7 @@ public class Ferias {
 	 * 
 	 * uso : 
 	 * Ferias X = new Ferias(inicio, fim);
-	 * boolean valido = X.isValid();
+	 * boolean valido = X.checarValidade();
 	 * 
 	 * @return true/false
 	 */
@@ -163,14 +166,12 @@ public class Ferias {
 			if(periodoFeriasValido(dataInicio, dataFim)) {
 				switch(this.getTipo()) {
 				case TOTAL:
+				case FRACIONADA:
 					if(this.getDiasVendidos()==0 && this.getDiasTotaisRequisitados()>0) return true;
 					break;
 				case PARCIAL:
 					if (this.getDiasVendidos()>0 && this.getDiasTotaisRequisitados()>0) return true;
-					break;
-				case FRACIONADA:
-					if (this.getDiasVendidos()==0 && this.getDiasTotaisRequisitados()>0) return true;
-					break;
+					break;				
 				default:
 					break;
 				}

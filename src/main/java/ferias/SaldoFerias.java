@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 /**
- * A classe que representa o saldo e histÃ³rico de fÃ©rias.
+ * A classe que representa o saldo e historico de ferias.
  * 
  * Possui mÃ©todos para calcular saldo, bem como a verificaÃ§Ã£o de saldo.
  * 
@@ -22,11 +22,11 @@ public class SaldoFerias {
 	public short INTERVALO_ENTRE_FERIAS_EM_ANOS = 1;
 	public short DIAS_DISPONIVEIS_PARA_FERIAS = 30;
 
-	// Intervalos na posição [0] a [1] da array, inclusivos;
+	// Intervalos na posiï¿½ï¿½o [0] a [1] da array, inclusivos;
 	public short INTERVALO_FALTAS_1 = 6;
 	public short INTERVALO_FALTAS_2 = 15;
 	public short INTERVALO_FALTAS_3 = 24;
-	public short INTERVALO_FALTAS_4 = 33; // até infinitos
+	public short INTERVALO_FALTAS_4 = 33; // atï¿½ infinitos
 
 	
 	public short CREDITOS_FALTAS_1 = 24;
@@ -34,7 +34,7 @@ public class SaldoFerias {
 	public short CREDITOS_FALTAS_3 = 12;
 	public short CREDITOS_FALTAS_4 = 0;
 
-	private String identificadorUsuario; // FK Foreign Key do usuário - Decidir quais classes tem
+	private String identificadorUsuario; // FK Foreign Key do usuï¿½rio - Decidir quais classes tem
 	
 	private LocalDate proximasFerias;
 	private int diasDisponiveisDeFerias; // Vai ser preenchido na data "proximasFerias"
@@ -44,8 +44,10 @@ public class SaldoFerias {
 
 
 
-	public SaldoFerias() {
-		identificadorUsuario = "todo"; // FK Foreign Key do usuário
+	// public SaldoFerias(String id) {  // <------ futuro uso do construtor
+	public SaldoFerias()
+	{	
+		//identificadorUsuario = id; // FK Foreign Key do usuï¿½rio
 		
 		proximasFerias = calcularProximasFerias();
 		diasDisponiveisDeFerias = 0;
@@ -99,7 +101,7 @@ public class SaldoFerias {
 		return historicoRequerimentos;
 	}
 	
-	// Nao devemos substituir a lista, ela já esta instanciada no construtor.
+	// Nao devemos substituir a lista, ela jï¿½ esta instanciada no construtor.
 
 	//public void setHistoricoFerias(ArrayList<Ferias> historicoFerias) {
 	//	this.historicoFerias = historicoFerias;
@@ -176,7 +178,7 @@ public class SaldoFerias {
 	/**
 	 * Verifica se possui saldo positivo.
 	 * 
-	 * Consulta o valor de Saldo de Ferias e verifica se ele é positivo.
+	 * Consulta o valor de Saldo de Ferias e verifica se ele ï¿½ positivo.
 	 * 
 	 * @param saldoFerias, da estrutura de dados.
 	 * @return
@@ -190,7 +192,7 @@ public class SaldoFerias {
 	/**
 	 * Pegar lista de chamados do tipoDesejado
 	 * 
-	 * tipoDesjado tem como opções os termos do enum EstadosRequisicao
+	 * tipoDesjado tem como opÃ§Ãµes os termos do enum EstadosRequisicao
 	 * 
 	 * Retorna uma lista de FeriasRequerimento contendo os requerimentos que possuem status desejado.
 	 * 
@@ -205,7 +207,6 @@ public class SaldoFerias {
 				pendentes.add(reqFerias);
 			}
 		}
-		
 		return pendentes;
 	}
 	
@@ -235,7 +236,7 @@ public class SaldoFerias {
 	/**
 	 * Pegar lista de ferias do tipoDesejado
 	 * 
-	 * tipoDesjado tem como opções os termos do enum TiposFerias
+	 * tipoDesjado tem como opï¿½ï¿½es os termos do enum TiposFerias
 	 * 
 	 * Retorna uma lista de Ferias contendo os chamados que possuem status desejado.
 	 * 

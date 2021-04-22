@@ -24,7 +24,7 @@ public class FeriasRequerimento {
 		this.identificadorUsuario = identificadorUsuario;
 		this.feriasRequisitada = feriasRequisitada;
 		this.estadoRequisicao = EstadosRequisicao.EM_ANALISE;
-		this.dataSolicitacao = LocalDate.now();
+		this.dataSolicitacao = LocalDate.now(); // data de criação da solicitação
 	}
 	
 	public String getIdentificadorUsuario() {
@@ -71,13 +71,14 @@ public class FeriasRequerimento {
 	/*
 	 * Atualiza o estado da requisição
 	 * 
-	 * Verifica se o novoEstado está registrado nas ENUMS do sistema Atualiza o
-	 * estado do requerimento
+	 * Verifica se o novoEstado está registrado nas ENUMS do sistema 
+	 * Atualiza o estado do requerimento
 	 * 
 	 * @return true/false sucesso da operação.
 	 */
 	public void atualizarEstadoRequisicao(EstadosRequisicao novoEstado) {
 		// Verificar os estados dentro do ENUM);
+		// Futuramente fazer outras validações necessárias aqui. Por enquanto o método está redundante com o setEstadoRequisicao;
 		setEstadoRequisicao(novoEstado);
 	}
 
@@ -87,11 +88,14 @@ public class FeriasRequerimento {
 	 * Retorna a quantidade de dias em formato short, a partir das datas de início e
 	 * término informadas.
 	 * 
+	 * Diferente da funcao calcularPeriodoFerias da classe Ferias,
+	 * essa foi definida como static para nao depender de uma instancia da classe e poder ser usada como "ferramenta";
+	 * 
 	 * @param inicio  Data de início.
 	 * @param termino Data de término.
 	 * 
 	 */
-	public short retornarIntervaloEmDiasEntreAsDatas(LocalDate inicio, LocalDate termino) {
+	public static short retornarIntervaloEmDiasEntreAsDatas(LocalDate inicio, LocalDate termino) {
 		short dias = (short) ChronoUnit.DAYS.between(inicio, termino);
 		if(inicio.isBefore(termino)) {
 			return dias;
@@ -110,7 +114,7 @@ public class FeriasRequerimento {
 	 */
 	public boolean validacaoPrazoSolicitacaoDeFerias(LocalDate dataInicio) {
 		int intervalo = retornarIntervaloEmDiasEntreAsDatas(getDataSolicitacao(), dataInicio);
-		System.out.println(intervalo);
+		//System.out.println(intervalo);
 		if (intervalo >= PRAZO_MINIMO_SOLICITACAO_FERIAS) {
 			return true;
 		} else {
